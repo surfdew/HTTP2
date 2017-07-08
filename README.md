@@ -1,12 +1,12 @@
 # HTTP2
-Outline for West Side Web Shredders Discussion on HTTP/2
+# Outline for West Side Web Shredders Discussion on HTTP/2
 
-History of HTTP (JK)
+* History of HTTP
 
-What has lead to HTTP/2 (JK)
+* What has lead to HTTP/2
 
-High level features (JK)
+* Browser/Server Compatibility 
 
-Browser/Server Compatibility (JK)
+* High level features
 
-Technical Deep Dive (MF)
+* Technical Deep Dive on the network stack
