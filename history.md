@@ -22,4 +22,5 @@ __HTTP 1.1__ was formalized from 1996 - 1999.
 
 
 [HTTP Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
+
 [Detailed History](https://hpbn.co/brief-history-of-http/)
