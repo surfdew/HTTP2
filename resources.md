@@ -5,3 +5,4 @@
 [HTTP/2 GitHub](https://http2.github.io/)
 
 [PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/)
+* [Background HTTP/2 Push](https://developers.google.com/web/fundamentals/performance/prpl-pattern/#background_http2_and_http2_server_push)
