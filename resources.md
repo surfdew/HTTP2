@@ -3,3 +3,5 @@
 [Wikipedia HTTP/2](https://en.wikipedia.org/wiki/HTTP/2)
 
 [HTTP/2 GitHub](https://http2.github.io/)
+
+[PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/)
