@@ -1,7 +1,7 @@
 # HTTP2
 ### Outline for West Side Web Shredders Discussion on HTTP/2
 
-* History of HTTP
+* [History of HTTP](history.md)
 
 * What has lead to HTTP/2
 
