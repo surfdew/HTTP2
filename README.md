@@ -3,10 +3,13 @@
 
 * [History of HTTP](history.md)
 
-* What has lead to HTTP/2
+* [What has lead to HTTP/2](timeline.md)
 
-* Browser/Server Compatibility 
+* [Browser/Server Compatibility](compatibility.md)
 
 * High level features
 
 * Technical Deep Dive on the network stack
+
+
+[HTTP/2 Resources](resources.md)
