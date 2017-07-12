@@ -1,0 +1,24 @@
+# Feature Overview of HTTP/2
+
+* Principle Design Goals
+
+- Reduction in the latency[1] 
+
+* Binary Framing
+
+* Streams
+
+* Message Multiplexing
+
+* Stream Prioritization
+
+* Message Flow Control
+
+* Server Push
+
+* Message Header Compression
+
+
+Footnotes: 
+[1]  Latency is the amount of time it takes for a packet of data to travel over a network. There are several factors that can affect the degree of latency experienced on a network. Some of these factors include bandwidth, geographical distance between network nodes, responsiveness of resource servers, etc.
+
