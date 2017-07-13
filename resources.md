@@ -8,3 +8,4 @@
 * [Speed Demo](https://http2.akamai.com/demo)
 * [Best HTTP/2 Site Ever](https://kinsta.com/learn/what-is-http2/)
 * [Hypertext Transfer Protocol (HTTP) Status Code Registery](http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
+* [HPACK: The Silent Killer (Feature) of HTTP/](https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/)
