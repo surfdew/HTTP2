@@ -1,16 +1,11 @@
-[Javascript Jabber Podcast](https://itunes.apple.com/us/podcast/jsj-261-http-2-with-surma/id496893300?i=1000385250157&mt=2)
-
-[Wikipedia HTTP/2](https://en.wikipedia.org/wiki/HTTP/2)
-
-[HTTP/2 GitHub](https://http2.github.io/)
-
-[PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/)
+* [Javascript Jabber Podcast](https://itunes.apple.com/us/podcast/jsj-261-http-2-with-surma/id496893300?i=1000385250157&mt=2)
+* [Wikipedia HTTP/2](https://en.wikipedia.org/wiki/HTTP/2)
+* [HTTP/2 GitHub](https://http2.github.io/)
+* [PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/)
 * [Background HTTP/2 Push](https://developers.google.com/web/fundamentals/performance/prpl-pattern/#background_http2_and_http2_server_push)
-
-[Simple HTTP/2 Server](https://github.com/GoogleChrome/simplehttp2server)
-
-[General Setup Help for HTTP/2](http://dassur.ma/things/h2setup/)
-
-[Speed Demo](https://http2.akamai.com/demo)
-
-[Best HTTP/2 Site Ever](https://kinsta.com/learn/what-is-http2/)
+* [Simple HTTP/2 Server](https://github.com/GoogleChrome/simplehttp2server)
+* [General Setup Help for HTTP/2](http://dassur.ma/things/h2setup/)
+* [Speed Demo](https://http2.akamai.com/demo)
+* [Best HTTP/2 Site Ever](https://kinsta.com/learn/what-is-http2/)
+* [Hypertext Transfer Protocol (HTTP) Status Code Registery](http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
+* [HPACK: The Silent Killer (Feature) of HTTP/](https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/)

@@ -1,0 +1,65 @@
+# Feature Overview of HTTP/2
+
+* Principle Design Goals
+
+- Reduction in the latency[1] 
+- Maintain backwards compatibility with HTTP 1/x
+- URLs schemes cannot change
+- Proxies must be able to translate back and forth between HTTP 2 and HTTP 1/1
+
+
+* Features
+** Binary Framing
+   - HTTP 1/1 uses text payloads, HTTP2 uses Binary Frames
+   - Easier to know where one message ends and where another begins
+   - Compression is easier when dealing with 1 & 0
+   - Different types of frames (10 total)
+     - DATA (request and response payloads)
+     - HEADERS
+     - PRIORITY
+     - RST_STEAM (cancel requests or responses)
+     - SETTINGS
+       - Enabling server push functionality
+       - Establish maximum number of concurrent streams
+** Streams
+   - Basically a series of ordered frames
+   - Each HTTP2 connection can have multiple, concurrent streams
+** Message Multiplexing 
+   - A client can send multiple messages over a single connection.
+     - Correlated through a /stream identifier/
+   - Improves performance by eliminating unnecessary overhead 
+** Stream Prioritization
+   - The priority or a steam is controlled through the =Priority= frame.
+   - Streams may be prioritized dynamically at runtime.
+   - Allows clients to control when assets are delivered by servers
+** Message Flow Control
+   - Data is transmitted over a /flow window/
+   - Both client and server have to disclose to one another how much data they can handle
+   - Both server and client must honor the size of the /window/. Neither can send more data then their peer can handle.
+   - Only DATA frames are flow controlled
+   - Prevents the receiver from being overwhelmed by incoming data
+
+** Server Push
+   - Allows the sever to preempt additional request from the client by sending (pushing) additional resources over multiplexed
+   - Enabled by setting the `LINK` header frame
+** Message Header Compression
+   - HTTP is a stateless protocol, all information for a server to fulfill a request must be sent in each message.
+     - This results in a lot of redundency.
+   - Uses a compression algorithm called Header Compression for HTTP/2 (HPACK)
+   - HTTP 1/1 compression occurs at the TLS layer using libraries like =gzip= (both headers and body)
+     - Three different compression techniques (static dictionary, dynamic dictionary, and huffman codes)
+
+
+ Footnotes: 
+
+ [1]  Latency is the amount of time it takes for a packet of data to travel over a network. There are several factors that can affect the degree of latency experienced on a network. Some of these factors include bandwidth, geographical distance between network nodes, responsiveness of resource servers, etc.
+ - HTTP 1/1 uses text (ASCII)
+   - Difficult to know where frames begin and end
+   - Protocol
+
+* Constraints
+
+- HTTP2 requires [[https://en.wikipedia.org/wiki/Transport_Layer_Security][TLS]]
+  - Necessary for [[https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation][Application Layer Protocol Negotiation (ALPN)]]
+  - Allows protocols to be upgraded without making two network round trips
+- Message format is binary

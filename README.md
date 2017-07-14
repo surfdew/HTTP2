@@ -9,9 +9,10 @@
 
 * [Best Practices](bestpractices.md)
 
-* High level features
+* [Technical Overview of HTTP](technical-overview.org)
 
-* Technical Deep Dive on the network stack
+* [New Features in HTTP/2](features.org)
+
 
 
 [HTTP/2 Resources](resources.md)
