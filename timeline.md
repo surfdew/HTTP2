@@ -10,3 +10,5 @@ __March 2012__ Twitter deployed SPDY after Google deployed across all its server
 __2012 - 2015__ SPDY gained in popularity and evolved into HTTP/2
 
 __Feburary 2015 - Chrome 51__ implemented support of HTTP/2 and decremented support of SPDY
+
+__The Present__ 90%+ browser support worldwide.  Higher if India is not included.  
