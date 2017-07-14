@@ -12,3 +12,5 @@
 [General Setup Help for HTTP/2](http://dassur.ma/things/h2setup/)
 
 [Speed Demo](https://http2.akamai.com/demo)
+
+[Best HTTP/2 Site Ever](https://kinsta.com/learn/what-is-http2/)
