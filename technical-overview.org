@@ -12,15 +12,6 @@
     - Methods
     - Headers
     - Status Codes
-  - Enhancements over HTTP 1/0
-    - Persistent Connections via =Keep-Alive= Header
-      - Supports introduction of Chunked Transfer Encoding
-        - Allows server to respond with "chunks" of data rather than whole resource
-        - Enables streaming of media
-    - Better support for caching
-    - Basic flow control support via =100 Continue= status code
-    - Chunked transfer encoding
-    - Enhanced compression
 
 ** Enhancements over HTTP 1/0
 
