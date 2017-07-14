@@ -1,0 +1,42 @@
+#+STARTUP: indent
+
+# Technical Overview of HTTP 1/1
+
+
+- HyperText Transfer Protocol (HTTP)
+  - Application Layer Protocol
+    - Other Examples:
+      - ~SMTP~: Simple Mail Transfer Protocol
+      - ~DNS~: Domain Name Service
+      - ~SIP~: Session Initiation Protocol
+  - Defines a set of application programming interfaces (API) that can be used to develop client-server
+    - Methods
+    - Headers
+    - Status Codes
+  - Key Concepts
+    - Messaging
+      - HTTP is a =stateless= protocol
+        - State and meta data communicated in headers
+        - Assumes the following format:
+asasd
+    - Addressabiltiy
+      - HTTP relies upon =Uniform Resource Identifiers= to identify resources within a network
+        - URIs can be either =locators= or =names=
+          - URL
+            - specifies the location of a server resource on a network
+            - Composed of several components: ~scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]~
+            - Examples:
+              - http://localhost:8081/employess?name=Mike&department=Engineering
+              - mailto:michael.filbin@ca.com?subject=HTTP&body=This%20is%20amazing!
+              - ftp://user:password@my-ftp-server.com
+          - URN
+            - Uniquely identifies a server resource (no to URNs may be the same)
+            - May or may not be =resolveable= within the boundaries of a given system
+            - Examples:
+              - urn:ieft:rfc:7230
+              - urn:isbn:12393039
+              - urn:myapplication:authorization:role:administrator
+    - Caching
+    - Authentication
+    - Conditional Requests
+    - Ranged Requests
