@@ -6,3 +6,7 @@
 
 [PRPL Pattern](https://developers.google.com/web/fundamentals/performance/prpl-pattern/)
 * [Background HTTP/2 Push](https://developers.google.com/web/fundamentals/performance/prpl-pattern/#background_http2_and_http2_server_push)
+
+[Simple HTTP/2 Server](https://github.com/GoogleChrome/simplehttp2server)
+
+[General Setup Help for HTTP/2](http://dassur.ma/things/h2setup/)
