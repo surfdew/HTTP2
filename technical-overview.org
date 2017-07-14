@@ -1,7 +1,6 @@
 #+STARTUP: indent
 
-# Technical Overview of HTTP 1/1
-
+* Hypertext Transfer Protocol 1/1 Technical Overview  
 
 - HyperText Transfer Protocol (HTTP)
   - Application Layer Protocol
@@ -13,33 +12,86 @@
     - Methods
     - Headers
     - Status Codes
-# Hypertext Transfer Protocol 1/1 Technical Overview  
+  - Enhancements over HTTP 1/0
+    - Persistent Connections via =Keep-Alive= Header
+      - Supports introduction of Chunked Transfer Encoding
+        - Allows server to respond with "chunks" of data rather than whole resource
+        - Enables streaming of media
+    - Better support for caching
+    - Basic flow control support via =100 Continue= status code
+    - Chunked transfer encoding
+    - Enhanced compression
 
-* Key Concepts
+** Enhancements over HTTP 1/0
 
-** Messaging
+*** Messaging
 - HTTP is a =stateless= protocol
   - State and meta data communicated in headers
   - ASCII text based
-  - Assumes the following format:`
-** Adressibility
-  - HTTP relies upon =Uniform Resource Identifiers= to identify resources within a network
-    - URIs can be either =locators= or =names=
-      - URL
-        - specifies the location of a server resource on a network
-        - Composed of several components: ~scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]~
-        - Examples:
-          - http://localhost:8081/employess?name=Mike&department=Engineering
-          - mailto:michael.filbin@ca.com?subject=HTTP&body=This%20is%20amazing!
-          - ftp://user:password@my-ftp-server.com
-      - URN
-        - Uniquely identifies a server resource (no to URNs may be the same)
-        - May or may not be =resolveable= within the boundaries of a given system
-        - Examples:
-          - urn:ieft:rfc:7230
-          - urn:isbn:12393039
-          - urn:myapplication:authorization:role:administrator
-** Caching
-** Authentication
-** Conditional Requests
-** Ranged Request
+    - Message parts are parsed with whitespace as delimiters
+  - Assumes the following format
+#+BEGIN_SRC shell
+# CR is a carriage return (e.g. /n/r)
+Request Line or Status Line CR
+Header 1 CR
+Header 2 CR
+Header n CR
+CR
+Message Body
+#+END_SRC
+
+
+
+*** Adressibility
+- HTTP relies upon =Uniform Resource Identifiers= to identify resources within a network
+  - URIs can be either =locators= or =names=
+    - URL
+      - specifies the location of a server resource on a network
+      - Composed of several components: ~scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]~
+      - Examples:
+        - http://localhost:8081/employess?name=Mike&department=Engineering
+        - mailto:michael.filbin@ca.com?subject=HTTP&body=This%20is%20amazing!
+        - ftp://user:password@my-ftp-server.com
+    - URN
+      - Uniquely identifies a server resource (no to URNs may be the same)
+      - May or may not be =resolveable= within the boundaries of a given system
+      - Examples:
+        - urn:ieft:rfc:7230
+        - urn:isbn:12393039
+        - urn:myapplication:authorization:role:administrator
+*** Caching
+- New headers for finer grain control
+  - =Cache-Control= header so servers may be more explicit in their caching directives
+  - =max-age= directive to allow for a relative time span for caching (as compared to HTTP 1/0 =Expires= header)
+  - =Vary= header enables the caching of content-negotiated representations of a server resource
+    - A server resource must always be addressable at the same URL, but different representations of that resource can be provided by the server.
+    - Since cache keys were URL based in earlier versions of HTTP, negotiating content representations breaks caching.
+    - The =Vary= header provides a list of relevant headers to compute a cache key that isn't connected to the URL
+- Etags as a caching mechanism
+- Conditional requests
+  - Allows caches to return responses early to avoid server round trips and latency by doing staleness checks.
+  - Clients can check caches by providing new headers like =If-None-Match= which allows etag checks
+  - There is a =If-Match= header for the opposite use case as the =If-None-Match= headers
+  - =If-Modified-Since= header was introduced in HTTP 1/0, but =If-Unmodified-Since= header was added in HTTP 1/1
+- Prevents intermediate caches from storing authenticated data (=Cache-Control: private=)
+
+*** Authentication
+- HTTP 1/0 introduced =Basic Authentication=
+  - Problematic because credentials are passed over connection in clear text (HTTP 1/x messages are ASCII text)
+- =Direct Digest Authentication= relies on a nonce from the server in the challenge.
+  - Client must compute a MD5 checksum that includes the username, password, HTTP method, URI, and nonce value
+  - The client can only successfully authenticate if the digest matches for that specific HTTP method and URI
+  - Reduces replay attacks by limiting the vulnerability to only the requests previously seen by the eavesdropper
+*** Persistent Connections
+- HTTP 1/0 Introduces persistent TCP connections using =Keep Alive= header
+  - Reusing connections reduces latency by eliminating DNS lookups and handshakes
+- Request Pipelining
+  - Implementation is problematic in HTTP 1/1 (most browsers ship with it off by default)
+  - Currently requests must be performed serially, but pipelining allows clients to make multiple, concurrent requests to the server over the same connection without waiting for any one response.
+
+*** Ranged Requests
+- Allows a client to request a range of data from the server via the =Range= header.
+- Client provides a byte range offset (e.g. ~Range: bytes=0-300~) but units and scalars are arbitrary
+- Enables features like:
+  - Parallel downloading of resources
+  - Pause/Resume of downloads
