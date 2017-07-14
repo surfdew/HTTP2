@@ -7,6 +7,8 @@
 
 * [Browser/Server Compatibility](compatibility.md)
 
+* [Best Practices](bestpractices.md)
+
 * High level features
 
 * Technical Deep Dive on the network stack
