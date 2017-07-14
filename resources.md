@@ -10,3 +10,5 @@
 [Simple HTTP/2 Server](https://github.com/GoogleChrome/simplehttp2server)
 
 [General Setup Help for HTTP/2](http://dassur.ma/things/h2setup/)
+
+[Speed Demo](https://http2.akamai.com/demo)
